@@ -80,9 +80,15 @@
 <script>
 export default {
   methods: {
-    submitHandler() {
-      alert('Thank you for signing up!');
+    updatePanelist(ev) {
+      this.currentPanelist = ev.target.value;
     },
+  },
+  data() {
+    return {
+      panelists: ['Evan You', 'Chris Fritz'],
+      currentPanelist: 'Evan You',
+    };
   },
 };
 </script>

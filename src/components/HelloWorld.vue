@@ -1,5 +1,13 @@
 <template>
-  <form id="basic-signup-form" @submit.prevent="submitHandler">
+  <form
+    id="basic-signup-form"
+    @submit.prevent="submitHandler"
+    name="ask-question"
+    method="post"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+  >
+    <input type="hidden" name="form-name" value="ask-question" />
     <div class="form-input">
       <label for="username">
         Username
@@ -33,6 +41,14 @@ export default {
     submitHandler() {
       alert('Thank you for signing up!');
     },
+    updatePanelist(ev) {
+      this.currentPanelist = ev.target.value;
+    },
+  },
+  data() {
+    return {
+      name: 'Romain',
+    };
   },
 };
 </script>

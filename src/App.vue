@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <myform />
   </div>
 </template>
 
 <script>
+import myform from '../src/components/my-form';
+
 export default {
   name: 'App',
-  components: {},
+  components: {
+    myform,
+  },
 };
 </script>
 

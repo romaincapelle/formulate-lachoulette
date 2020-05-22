@@ -1,5 +1,13 @@
 <template>
-  <form id="basic-signup-form" @submit.prevent="submitHandler">
+  <form
+    id="basic-signup-form"
+    @submit.prevent="submitHandler"
+    name="ask-question"
+    method="post"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+  >
+    <input type="hidden" name="form-name" value="ask-question" />
     <h2>Sign up for FormulateConf 2020 in Charlottesville, VA</h2>
     <div class="form-input">
       <label for="username">

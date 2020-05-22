@@ -1,58 +1,112 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+  <form id="basic-signup-form" @submit.prevent="submitHandler">
+    <div class="form-input">
+      <label for="username">
+        Username
+      </label>
+      <input
+        id="username"
+        type="text"
+        name="username"
+        pattern="[a-z]{4,8}"
+        required
+      />
+      <p class="help-text">
+        Usernames must be lowercase and between 4-8 characters in length.
+      </p>
+    </div>
+
+    <div class="form-input">
+      <label for="email">
+        Email
+      </label>
+      <input id="email" type="email" name="email" required />
+    </div>
+
+    <input type="submit" value="Register!" />
+  </form>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-}
+  methods: {
+    submitHandler() {
+      alert('Thank you for signing up!');
+    },
+  },
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style>
+body {
+  min-height: 100vh;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, cyan, magenta);
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #999;
+  width: 90%;
+  max-width: 320px;
+  padding: 3em 2em;
+  border-radius: 0.3em;
+  box-shadow: 0.25em 0.15em 12em 0 rgba(#000, 0.25);
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h2 {
+    margin-top: 0;
+    color: #555;
+  }
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1em;
+
+  input,
+  textarea {
+    width: 100%;
+    margin-bottom: 0;
+    border: 1px solid #caca;
+    padding: 0.5em;
+    border-radius: 0.25em;
+  }
+
+  label {
+    font-weight: bold;
+    font-size: 0.85em;
+    margin-bottom: 0.5em;
+  }
+
+  .help-text {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    color: #999;
+    font-size: 0.75em;
+  }
 }
-a {
-  color: #42b983;
+
+input[type='submit'] {
+  appearance: none;
+  border: 1px solid deeppink;
+  background-color: magenta;
+  padding: 1em 1.5em;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 0.5em;
+  margin: 1em auto 0 auto;
 }
 </style>
